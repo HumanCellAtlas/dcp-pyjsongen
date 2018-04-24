@@ -1,19 +1,21 @@
 import json
+from typing import Optional
+
 import random
 
 from jsonschema import RefResolver
-
-# from dss.util.s3urlcache import S3UrlCache
 from src.generator import JsonGenerator
+from src.types import Cache
 
 
 class HCAJsonGenerator(object):
     """
     Used to generate random JSON from a from a list of URLs containing JSON schemas.
     """
-    def __init__(self, schema_urls, cache=None):
+    def __init__(self, schema_urls, cache: Optional[Cache]):
         """
         :param schema_urls: a list of URL's pointing to valid json schemas.
+        :param cache: an object used for caching URL's during the generation process.
         """
         self.schemas = dict()
         for url in schema_urls:
@@ -68,7 +70,7 @@ class HCAJsonGenerator(object):
         return schema
 
     @staticmethod
-    def resolver_factory(cache) -> RefResolver:
+    def resolver_factory(cache: Cache) -> RefResolver:
         """
         Creates a refResolver with a persistent cache
         :cache : a class type with a resolver functions
