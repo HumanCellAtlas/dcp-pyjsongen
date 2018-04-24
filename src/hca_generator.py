@@ -13,7 +13,7 @@ class HCAJsonGenerator(object):
     """
     def __init__(self, schema_urls, cache=None):
         """
-        :param schema_urls: a list of JSON schema URLs.
+        :param schema_urls: a list of URL's pointing to valid json schemas.
         """
         self.schemas = dict()
         for url in schema_urls:
