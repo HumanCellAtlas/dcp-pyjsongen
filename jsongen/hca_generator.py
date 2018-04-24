@@ -12,7 +12,7 @@ class HCAJsonGenerator(object):
     """
     Used to generate random JSON from a from a list of URLs containing JSON schemas.
     """
-    def __init__(self, schema_urls, cache: Optional[Cache]):
+    def __init__(self, schema_urls, cache: Optional[Cache]=None):
         """
         :param schema_urls: a list of URL's pointing to valid json schemas.
         :param cache: an object used for caching URL's during the generation process.
