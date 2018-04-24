@@ -6,7 +6,7 @@ import sys
 pkg_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))  # noqa
 sys.path.insert(0, pkg_root)  # noqa
 
-from src.hca_generator import HCAJsonGenerator
+from jsongen.hca_generator import HCAJsonGenerator
 
 
 schema_urls = [
@@ -23,7 +23,7 @@ for name in faker.schemas.keys():
     fake_json = faker.generate(name)
 
 
-from src.generator import JsonGenerator
+from jsongen.generator import JsonGenerator
 
 
 schema_analysis={

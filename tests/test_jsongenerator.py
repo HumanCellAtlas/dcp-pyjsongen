@@ -8,7 +8,7 @@ from typing import Callable, Any, Dict, Union, Tuple
 pkg_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))  # noqa
 sys.path.insert(0, pkg_root)  # noqa
 
-from src.generator import JsonGenerator
+from jsongen.generator import JsonGenerator
 
 type_mapping = {'string': str,
                 'object': dict,

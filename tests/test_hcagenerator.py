@@ -8,7 +8,7 @@ import unittest
 pkg_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))  # noqa
 sys.path.insert(0, pkg_root)  # noqa
 
-from src.hca_generator import HCAJsonGenerator
+from jsongen.hca_generator import HCAJsonGenerator
 
 schema_urls = [
     "https://raw.githubusercontent.com/HumanCellAtlas/metadata-schema/4.6.0/json_schema/analysis_bundle.json",

@@ -4,8 +4,8 @@ from typing import Optional
 import random
 
 from jsonschema import RefResolver
-from src.generator import JsonGenerator
-from src.types import Cache
+from jsongen.generator import JsonGenerator
+from jsongen.types import Cache
 
 
 class HCAJsonGenerator(object):
