@@ -1,19 +1,14 @@
 #!/usr/bin/env python
 
-import json
 import os
 import sys
 import unittest
 from typing import Callable, Any, Dict, Union, Tuple
 
-from faker import Faker
-from jsonschema import Draft4Validator
-
 pkg_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))  # noqa
 sys.path.insert(0, pkg_root)  # noqa
 
-from tests.infra import testmode
-from dss.util.json_gen.generator import JsonGenerator, JsonProvider
+from src.generator import JsonGenerator
 
 type_mapping = {'string': str,
                 'object': dict,
@@ -243,7 +238,6 @@ class Base(unittest.TestCase):
                     self.assertIn(func({'type': jtype, 'enum': enums}), enums)
 
 
-@testmode.standalone
 class TestNumber(Base):
     numbers = [10.0, 0.3, 0.0, -0.1, -10.0, 1e-09]
     multiple_ofs = [0.1, 1.01, 1.5, 1.99, 2, 3]
@@ -330,7 +324,6 @@ class TestNumber(Base):
                     self.assertEqual(value, 1.0)
 
 
-@testmode.standalone
 class TestInteger(Base):
 
     def test_common(self):
@@ -401,7 +394,6 @@ class TestInteger(Base):
             self.assertEqual(value, 2)
 
 
-@testmode.standalone
 class TestString(Base):
     minimum = 10
     maximum = 50
@@ -465,7 +457,6 @@ class TestString(Base):
                 self.assertGreaterEqual(len(value), minimum)
 
 
-@testmode.standalone
 class TestArray(Base):
 
     def test_common(self):
@@ -557,7 +548,6 @@ class TestArray(Base):
             pass
 
 
-@testmode.standalone
 class TestObject(Base):
     properties = {
         'thing1': simple_string,
@@ -649,7 +639,6 @@ class TestObject(Base):
         pass
 
 
-@testmode.standalone
 class TestJsonGenerator(Base):
 
     def test_generate(self):
