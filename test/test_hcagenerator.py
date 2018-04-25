@@ -37,6 +37,7 @@ class TestHCAGenerator(unittest.TestCase):
                 with self.subTest(name):
                     fake_json = self.faker.generate(name)
                     self.assertIsInstance(json.loads(fake_json), dict)
+                    self.assertEqual(name, self.faker.last_name)
 
 
 if __name__ == "__main__":

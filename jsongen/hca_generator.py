@@ -38,6 +38,7 @@ class HCAJsonGenerator(object):
         else:
             assert name in self.schemas.keys()
             schema = self.schemas[name]
+        self.last_name = name
         self.resolve_references(schema)
         generated_json = {name: self._json_gen.generate_json(schema)}
         return json.dumps(generated_json)
