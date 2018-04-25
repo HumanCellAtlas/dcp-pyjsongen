@@ -2,6 +2,7 @@
 A tool for generating JSON data based on a provided JSON schema. 
 
 ## Setup
+run ```make install```
 
 ## Test
 
@@ -9,7 +10,7 @@ A tool for generating JSON data based on a provided JSON schema.
 
 Here is an example for using `HCAJsonGenerator`
 ```python
-from src.hca_generator import HCAJsonGenerator
+from jsongen.hca_generator import HCAJsonGenerator
 
 schema_urls = ["https://schema.humancellatlas.org/bundle/5.1.0/ingest_audit"]
 
@@ -19,7 +20,7 @@ fake_json = faker.generate()
 
 Here is an example for using `JsonGenerator`
 ```python
-from src.generator import JsonGenerator
+from jsongen.generator import JsonGenerator
 
 schema_analysis={
     "analysis_id": {
